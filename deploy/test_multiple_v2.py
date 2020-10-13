@@ -38,7 +38,7 @@ features = engagement_model.get_embeddings(model,'lecture_samples')
 
 # load student profile embeddings
 with open('polsci100_student_database.json') as f:
-    data = json.load(f)
+    data = json.lenoad(f)
 
 # compare samples to profile face embeddings
 attendance = engagement_model.compare_embeddings(engage_model, features, data)
