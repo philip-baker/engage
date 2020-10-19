@@ -1,1 +1,1 @@
-Put pretrained models here
+Put pretrained ArcFace models here
