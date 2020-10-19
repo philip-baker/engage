@@ -1,17 +1,16 @@
 # Engage - Computer Vision for Classroom Engagement
 
-By Jia Guo and [Jiankang Deng](https://jiankangdeng.github.io/)
+By Keith Spencer-Edgar and Philip Baker
 
 ## License
 
-The code of InsightFace is released under the MIT License. There is no limitation for both acadmic and commercial usage.
+The code of engage is released under the MIT License. There is no limitation for both acadmic and commercial usage.
 
 The training data containing the annotation (and the models trained with these data) are available for non-commercial research purposes only.
 
 ### Introduction
 
 In this module, network settings and loss designs for deep face recognition.
-
 
 
 ## Face Detection
@@ -28,7 +27,6 @@ For models please see the Insight Face teams's
 ## Key Steps 
 1. Prepare a pre-trained model
 2. Put the model under *`$engage/models/`*. For example, *`$engage/models/model-r100-ii`*.
-
 
 
 ## Citation
