@@ -1,3 +1,7 @@
+from torch import nn
+from torchvision.models import resnet50, resnet101
+import numpy as np
+import torch
 
 
 class DetectionModel(nn.Module):
@@ -65,7 +69,6 @@ class DetectionModel(nn.Module):
         x = self.model.maxpool(x)
 
         x = self.model.layer1(x)
-        # res2 = x
 
         x = self.model.layer2(x)
         res3 = x
