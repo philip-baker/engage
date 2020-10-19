@@ -1,16 +1,12 @@
-import csv
 import glob
 import shutil
-from funcitons import *
+import torch
+from functions import *
 from model.utils import *
 from PIL import Image, ImageDraw, ImageFont
 import json
-import os.path as osp
-import numpy as np
-import torch
-from torch import nn
+import os
 from torchvision import transforms
-from torchvision.models import resnet50, resnet101
 
 
 class args_eval():
@@ -18,8 +14,8 @@ class args_eval():
         self.data_location = "data/images"
         self.nms_thresh = 0.3
         self.prob_thresh = 0.03
-        self.checkpoint = "weights/checkpoint_50.pth"
-        self.results_dir = "data/output_faces"
+        self.checkpoint = "model/weights/checkpoint_50.pth"
+        self.results_dir = "data/output_faces/"
         self.template_file = "data/templates.json"
 
 
@@ -59,8 +55,10 @@ def main():
         img_tensor = transforms.functional.to_tensor(Image.open(img).convert('RGB'))
         dets = get_detections(model, img_tensor, templates, rf, val_transforms,
                               prob_thresh=args.prob_thresh, nms_thresh=args.nms_thresh, device=device)
-        savescores(dets, "results/img02/scores.csv")
-        cut_bboxes(dets, args.results_dir + "unqiue", Image.open(img))
+        fn = os.path.basename(os.path.normpath(img.split(".jpg")[0]))
+        os.mkdir(args.results_dir + fn)
+        savescores(dets, args.results_dir + fn + '/scores.csv')
+        cut_bboxes(dets, args.results_dir + fn + '/', Image.open(img))
 
         # cut image into processed
         shutil.move(img, args.data_location + "/processed")
