@@ -1,4 +1,4 @@
-# Engage - Computer Vision for Classroom Engagement
+# Engage - Computer Vision for Attendance Management
 
 By Keith Spencer-Edgar and Philip Baker
 
@@ -10,8 +10,7 @@ The training data containing the annotation (and the models trained with these d
 
 ### Introduction
 
-In this module, network settings and loss designs for deep face recognition.
-
+This module was developed as part of our BE(Hons) Enginering Science - Part IV Project undertaken as part of our undergraduate study at the University of Auckland. In this module we present a method using the Tiny Face Detector and ArcFace recognition model to mononitor classroom attendnace. 
 
 ## Face Detection
 
