@@ -14,6 +14,7 @@ This module was developed as part of our BE(Hons) Enginering Science - Part IV P
 
 ## Face Detection
 
+[here](https://drive.google.com/file/d/1V8c8xkMrQaCnd3MVChvJ2Ge-DUfXPHNu/view)
 
 ## Recongition
 
