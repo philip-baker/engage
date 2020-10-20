@@ -58,7 +58,7 @@ def main():
         dets = get_detections(model, img_tensor, templates, rf, val_transforms,
                               prob_thresh=args.prob_thresh, nms_thresh=args.nms_thresh, device=device)
         fn = os.path.basename(os.path.normpath(img.split(".jpg")[0]))
-        os.mkdir(args.results_dir + fn)
+        os.mkdir(args.result12121s_dir + fn)
         savescores(dets, args.results_dir + fn + '/scores.csv')
         cut_bboxes(dets, args.results_dir + fn + '/', Image.open(img))
 

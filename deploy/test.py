@@ -27,7 +27,7 @@ parser.add_argument('--gpu', default=-1, type=int, help='gpu id (-1 to run on CP
 parser.add_argument('--det', default=0, type=int, help='mtcnn option, 1 means using R+O, 0 means detect from begining')
 parser.add_argument('--flip', default=0, type=int, help='whether do lr flip aug')
 parser.add_argument('--threshold', default=1.24, type=float, help='ver dist threshold')
-parser.add_argument('--code', default='engsci', type=str, help='The course code of the lecture')
+parser.add_argument('--code', default='gened', type=str, help='The course code of the lecture')
 args = parser.parse_args()
 
 # load model

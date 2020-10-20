@@ -36,10 +36,16 @@ class EngageModel:
             if filename.endswith(".jpg"):
                 file_path = os.path.join(folder, filename)
                 img = cv2.imread(file_path)
-                img = model.get_input(img)
-                f1 = model.get_feature(img)
-                features[i, :] = f1
-                i += 1
+                try:
+                    img = model.get_input(img)
+                    f1 = model.get_feature(img)
+                    features[i, :] = f1
+                    i += 1
+                #TODO fix this
+                except:
+                    print('ArcFace could not detect face')
+                    features = np.delete(features, i, 0)
+
         return features
 
     def get_profiles(self):
@@ -74,8 +80,9 @@ class EngageModel:
                 name = data[i][0]
                 if dist < self.args.threshold:
                     count = 1
-                    c.execute("""INSERT OR IGNORE INTO attendance VALUES (:date, :upi, :course_code, :attendance)""",
-                              {'date': date, 'upi': name, 'course_code': self.code, 'attendance': 1})
+                    c.execute(
+                        """INSERT OR IGNORE INTO attendance VALUES (:date, :upi, :course_code, :attendance)""",
+                        {'date': date, 'upi': name, 'course_code': self.code, 'attendance': 1})
             # this section may need correcting if this script is being ran multiple times in one day
             if count == 0:
                 c.execute("""INSERT OR IGNORE INTO attendance VALUES (:date, :upi, :course_code, :attendance)""",
