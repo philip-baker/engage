@@ -36,7 +36,7 @@ c = conn.cursor()
 
 # iterate through the profiles and calculate embeddings for each one
 for filename in os.listdir('student_profiles'):
-    if filename.endswith(".jpg"):  # there should probably be someway to probe the file type
+    if filename.endswith(".jpg"):
         file_path = os.path.join('student_profiles', filename)
         img = cv2.imread(file_path)
         img = model.get_input(img)
@@ -44,7 +44,7 @@ for filename in os.listdir('student_profiles'):
         f1 = json.dumps(list(map(str, list(f1))))
         name = os.path.splitext(filename)[0]
 
-        c.execute("""INSERT OR IGNORE INTO features VALUES (:upi, :features)""",
+        c.execute("""INSERT OR REPLACE INTO features VALUES (:upi, :features)""",
                   {'upi': name, 'features': f1})
         conn.commit()
 

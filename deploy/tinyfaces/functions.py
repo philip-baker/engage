@@ -1,3 +1,7 @@
+import csv
+import numpy as np
+from torchvision import transforms
+import torch
 
 
 def regression_refinement(tx, ty, tw, th, cx, cy, cw, ch, indices):
@@ -71,7 +75,7 @@ def get_detections(model, img, templates, rf, img_transforms,
     scales_list = [2 ** x for x in scales]
 
     # convert tensor to PIL image so we can perform resizing
-    image = transforms.functional.to_pil_image(img[0])
+    image = transforms.functional.to_pil_image(img)
 
     min_side = np.min(image.size)
 
@@ -188,7 +192,6 @@ def get_bboxes(score_cls, score_reg, prob_cls, templates, prob_thresh, rf, scale
 
 
 def cut_bboxes(dets, savedir, img):
-    ##   TODO: insert code to cut out bboxes from image, save in folder
 
     # for each line in dets (each bbox) crop image and save to directory
     for i in range(len(dets)):

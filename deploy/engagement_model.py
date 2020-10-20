@@ -42,7 +42,6 @@ class EngageModel:
                 i += 1
         return features
 
-
     def get_profiles(self):
         """Retrieves the feature embeddings for students in a specific class
         """
@@ -55,7 +54,6 @@ class EngageModel:
         conn.close()
 
         return data
-
 
     # compare samples to profile face embeddings
     def compare_embeddings(self, sample_features, data):
