@@ -1,4 +1,4 @@
-# Engage - Computer Vision for Attendance Management
+# Engage - Computer Vision for Classroom Engagement
 
 By Keith Spencer-Edgar and Philip Baker
 
