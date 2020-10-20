@@ -32,12 +32,12 @@ args = parser.parse_args()
 
 # load model
 model = face_model.FaceModel(args)
-dirListing = os.listdir('lecture_samples') # get the number of sample photos
+dirListing = os.listdir('tinyfaces/data/output_faces') # get the number of sample photos
 features = np.zeros((len(dirListing), 512))
 
 # calculate embeddings for each sample picture
 engage_model = EngageModel(args)
-sample_features = EngageModel.get_embeddings(model,'lecture_samples')
+sample_features = EngageModel.get_embeddings(model,'tinyfaces/data/output_faces')
 
 # load student profile embeddings for the class in progress
 data = EngageModel.get_profiles(args)
