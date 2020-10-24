@@ -47,8 +47,6 @@ def add_course(name):
     conn.close()
 
 
-
-
 class Student:
     """
 
