@@ -1,1 +1,1 @@
-Put pretrained ArcFace models here
+Put pretrained TinyFace models here

@@ -36,16 +36,19 @@ class EngageModel:
             if filename.endswith(".jpg"):
                 file_path = os.path.join(folder, filename)
                 img = cv2.imread(file_path)
-                try:
-                    img = model.get_input(img)
-                    f1 = model.get_feature(img)
-                    features[i, :] = f1
-                    i += 1
-                #TODO fix this
-                except:
-                    print('ArcFace could not detect face')
-                    features = np.delete(features, i, 0)
-
+                # try:
+                #     img = model.get_input(img)
+                #     f1 = model.get_feature(img)
+                #     features[i, :] = f1
+                #     i += 1
+                # #TODO fix this
+                # except:
+                #     print('ArcFace could not detect face')
+                #     features = np.delete(features, i, 0)
+                img = model.get_input(img)
+                f1 = model.get_feature(img)
+                features[i, :] = f1
+                i += 1
         return features
 
     def get_profiles(self):
