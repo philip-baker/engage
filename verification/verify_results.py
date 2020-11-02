@@ -27,7 +27,7 @@ class args_eval():
     def __init__(self):
         self.nms_thresh = 0.3
         self.prob_thresh = 0.03
-        self.checkpoint = "models/tinyfaces/checkpoint_50.pth"
+        self.checkpoint = "models/checkpoint_50.pth"
         self.template_file = "helper/tinyfaces/data/templates.json"
         self.threshold_score = 0
 
