@@ -1,6 +1,6 @@
-# Engage - Computer Vision for Attendance Management
+# Computer Vision for Attendance Management
 
-By Keith Spencer-Edgar and Philip Baker
+By Keith Spencer-Edgar and Philip Baker October 2020
 
 ## License
 
@@ -10,7 +10,7 @@ The training data containing the annotation (and the models trained with these d
 
 ### Introduction
 
-This module was developed as part of our BE(Hons) Enginering Science - Part IV Project undertaken as part of our undergraduate study at the University of Auckland. In this module we present a method using the Tiny Face Detector and ArcFace recognition model to mononitor classroom attendnace. 
+This module was developed as part of our BE(Hons) Enginering Science - Part IV Project undertaken as part of our undergraduate study at the University of Auckland under the supervision of Dr Nicholas Rattenbury. In this module we present a system using the Tiny Face Detector and ArcFace recognition model to mononitor classroom attendnace. 
 
 ## Face Detection
 
@@ -31,8 +31,7 @@ For models please see the Insight Face teams's
 
 ## Citation
 
-If you find the ArcFace facial recongition method useful please consider citing the origional authors work.
-
+If you find either ArcFace or the Tiny Face Detector useful please consider citing the original works.
 
 ```
 @inproceedings{deng2018arcface,
@@ -41,13 +40,22 @@ author={Deng, Jiankang and Guo, Jia and Niannan, Xue and Zafeiriou, Stefanos},
 booktitle={CVPR},
 year={2019}
 }
+
+@inproceedings{tinyfaces,
+author = {Hu, Peiyun and Ramanan, Deva},
+year = {2017},
+month = {07},
+pages = {1522-1530},
+title = {Finding Tiny Faces},
+doi = {10.1109/CVPR.2017.166}
+}
 ```
 
 ## Contact
 
 ```
 [Keith Spencer-Edgar]
-[Philip Baker](philipbaker[at]hotmail.co.nz)
+[Philip Baker](philipbaker[@]hotmail.co.nz)
 
 
 
