@@ -31,7 +31,7 @@ As part of the project we have developed a system capable of measuring attendanc
 ```
 git clone --recursive https://github.com/philip-baker/engage/edit/main/README.md
 ```
-2. Download the Tiny Face Detector and ArcFace models, then put both models in the *`$engagemodels`* directory. If you are using the model-r100-ii, then you will need to put hte model-r100-ii directory directly under models. You will need to put checkpoint_50.pth (the Tiny Face Detector model) under *`$engage/models/tinyfaces`*.
+2. Download the Tiny Face Detector and ArcFace models, then put both models in the *`$engage/models`* directory. If you are using the model-r100-ii, then you will need to put hte model-r100-ii directory directly under models. You will need to put checkpoint_50.pth (the Tiny Face Detector model) under *`$engage/models/tinyfaces`*.
 3. Download the required packages as a per requirements.txt. You can try pip3 install -r requirements.txt
 ### Usage
 1. In the file students.csv enter the UPI (Unique Personal Identifier), last name, first name, and age for every student in the class. Please not that this file does not have a reader row at the beginning. 
