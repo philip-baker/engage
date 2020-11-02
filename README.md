@@ -25,9 +25,23 @@ For models please see the Insight Face teams's
 
 
 ## OBA - Out of the Box Attendance
+### Setup 
 As part of the project we have developed a system capable of measuring attendance for a single class requiring minimal setup. 
-1. Prepare a pre-trained model
-2. Put the model under *`$engage/models/`*. For example, *`$engage/models/model-r100-ii`*.
+1. Clone the egage repository.
+```
+git clone --recursive https://github.com/philip-baker/engage/edit/main/README.md
+```
+2. Download the Tiny Face Detector and ArcFace models, then put both models in the *`$engagemodels`* directory. If you are using the model-r100-ii, then you will need to put hte model-r100-ii directory directly under models. You will need to put checkpoint_50.pth (the Tiny Face Detector model) under *`$engage/models/tinyfaces`*.
+3. Download the required packages as a per requirements.txt. You can try pip3 install -r requirements.txt
+### Usage
+1. In the file students.csv enter the UPI (Unique Personal Identifier), last name, first name, and age for every student in the class. Please not that this file does not have a reader row at the beginning. 
+
+2. In the directory student_profiles put a profile picture for each student in the class. The profile pictures should be .jpg files and the file name should be the sudents UPI. Run build_system.py to create the SQLite (.db) database file.
+
+3. If you would like to take a picture of the class using an attached camera simply run check_attendance.py at the beginning of the class. A pop up window will appear, when you are satisfied with the picture, press q to take the image. If you would like to manually provide an image, simply put an image named sample.jpg under sample_images and run check_attendance.py
+
+4. To view the results you will need to use third-party software to view the contents of the .db SQLite database.  To do this the authors have been using DB Browser for SQLite. 
+
 
 
 ## Citation
