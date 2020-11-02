@@ -18,13 +18,14 @@ This module was developed as part of our BE(Hons) Enginering Science - Part IV P
 
 ## Recongition
 
-For facial recognition we used ArcFace, which developed by the Insight Face and was initially described in an [arXiv technical report](https://arxiv.org/abs/1801.07698). The authors of this model were able to achieve LFW 99.83%+ and Megaface 98%+. Further information about ArcFace is available at the origional authors' github repository [InsightFace](https://github.com/deepinsight/insightface/blob/master/README.md)
+For facial recognition we used ArcFace, eveloped by the Insight Face team. More information about the mdoel can be found in [arXiv technical report](https://arxiv.org/abs/1801.07698). The authors of this model were able to achieve LFW 99.83%+ and Megaface 98%+. Further information about ArcFace is available at the origional authors' github repository [InsightFace](https://github.com/deepinsight/insightface/blob/master/README.md)
 
 For models please see the Insight Face teams's 
 [Model Zoo](https://github.com/deepinsight/insightface/wiki/Model-Zoo), we reccomend using the LResNet50E-IR,ArcFace@ms1m-refine-v1 model.  This model will have to be downloaded, and then stored in the models folder. 
 
 
-## Key Steps 
+## OBA - Out of the Box Attendance
+As part of the project we have developed a system capable of measuring attendance for a single class requiring minimal setup. 
 1. Prepare a pre-trained model
 2. Put the model under *`$engage/models/`*. For example, *`$engage/models/model-r100-ii`*.
 
