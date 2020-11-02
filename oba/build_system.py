@@ -1,5 +1,6 @@
 import sys
 import os
+os.chdir('..')
 sys.path.append(os.getcwd() +'/helper')
 import face_model
 import argparse

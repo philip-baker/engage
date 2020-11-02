@@ -7,16 +7,17 @@ import numpy as np
 with open("roll_call.json", "r") as read_file:
     json_data = json.load(read_file)
 
-csv_data = pd.read_csv("output_NASA_res_test_many.csv", names=["UPI", "Present", "Class_name", "Class_photo", "face_width"])
+# reaad in csv file to be processed - change file name to suit
+csv_data = pd.read_csv("verify_resolutions_csv.csv", names=["UPI", "Present", "Class_name", "Class_photo", "quality", "face_width"])
 results = pd.DataFrame(columns=['photo', 'face_width', 'tp_rate', 'tn_rate', 'fp_rate', 'fn_rate', 'precision',
                                 'recall', 'specificity', 'ba'])
 csv_data.face_width = csv_data.face_width.fillna(0)
 
 
 for class_p in csv_data.Class_photo.unique():
-    csv_data.loc[(csv_data.Class_photo == class_p), 'face_width'] = \
-        np.repeat(np.arange(start=0.1, stop=1.025, step=0.025), 60) \
-        * max(csv_data.loc[(csv_data.Class_photo == 'sample_1.jpg'), 'face_width'])
+    # find number of quals
+    max_width = max(csv_data.loc[(csv_data.Class_photo == class_p), 'face_width'])
+    csv_data['face_width'] = csv_data.apply(lambda row: row.quality * max_width, axis=1)
 
 for photo in csv_data.Class_photo.unique():
     roll = json_data.get(photo)
@@ -72,7 +73,7 @@ plt.show()
 
 for i in results.photo.unique():
     x = results[results.photo == i]['face_width']
-    y = results[results.photo == i]['recall'] #+ results[results.photo == i]['tn_rate']
+    y = results[results.photo == i]['recall']
     plt.plot(x,y, label = i)
 plt.xlabel("average face width (pixels)", fontsize=11)
 plt.ylabel("sensitivity (recall)", fontsize=11)
