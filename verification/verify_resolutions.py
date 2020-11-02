@@ -30,9 +30,10 @@ class args_eval():
     def __init__(self):
         self.nms_thresh = 0.3
         self.prob_thresh = 0.03
-        self.checkpoint = "models/tinyfaces/model/checkpoint_50.pth"
+        self.checkpoint = "models/tinyfaces/checkpoint_50.pth"
         self.template_file = "helper/tinyfaces/data/templates.json"
         self.threshold_score = 0
+        self.csv_save_path = "verification/verify_resolutions_csv.csv"
 
 
 args_tinyface = args_eval()
@@ -124,7 +125,7 @@ for this_class in classes:
                     face_width = new_bbox[2] - new_bbox[0]
                     this_face = np.array(this_img.crop(new_bbox))  # get cropped face
                     class_faces.append(list([this_face[:, :, ::-1].copy(), face_width]))  # append the cropped face
-                    class_scores.append(dets[i][4])  # append the score
+                    # class_scores.append(dets[i][4])  # append the score - not used at the moment
 
             # calculate arcface embeddings for each sample picture
             detection_features, face_widths = EngageModel.get_embeddings(model_arcface, class_faces)
@@ -157,7 +158,7 @@ for this_class in classes:
 
     output.append(list([list(itertools.chain.from_iterable(attendance_sheet))]))
 
-with open("output_NASA_res_test_many.csv", 'w', newline='') as myfile:
+with open(args_tinyface.save_path_location, 'w', newline='') as myfile:
     wr = csv.writer(myfile)
     for class_i in output:
         for class_photo in class_i:
