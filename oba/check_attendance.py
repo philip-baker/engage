@@ -3,8 +3,8 @@
 #               It will to run on CPUe use general python test_multiple.py --gpu -1
 import sys
 import os
-sys.path.append(os.getcwd() +'/helper')
-sys.path.append(os.getcwd() +'/helper/tinyfaces')
+os.chdir('..')
+sys.path.append(os.getcwd() +'/models/tinyfaces')
 import face_model
 from engagement_model import EngageModel
 from tinyfaces import tiny, args_eval
