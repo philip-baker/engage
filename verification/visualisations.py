@@ -7,7 +7,8 @@ import numpy as np
 with open("roll_call.json", "r") as read_file:
     json_data = json.load(read_file)
 
-csv_data = pd.read_csv("output_NASA_res_test_many.csv", names=["UPI", "Present", "Class_name", "Class_photo", "face_width"])
+# reaad in csv file to be processed - change file name to suit
+csv_data = pd.read_csv("verify_resolution_csv.csv", names=["UPI", "Present", "Class_name", "Class_photo", "face_width"])
 results = pd.DataFrame(columns=['photo', 'face_width', 'tp_rate', 'tn_rate', 'fp_rate', 'fn_rate', 'precision',
                                 'recall', 'specificity', 'ba'])
 csv_data.face_width = csv_data.face_width.fillna(0)
