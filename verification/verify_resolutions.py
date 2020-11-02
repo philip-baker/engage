@@ -13,6 +13,7 @@ import itertools
 import PIL.Image
 from torchvision import transforms
 
+os.chdir("..")
 sys.path.append(os.getcwd() + '/helper')
 sys.path.append(os.getcwd() + '/helper/tinyfaces')
 
@@ -29,7 +30,7 @@ class args_eval():
     def __init__(self):
         self.nms_thresh = 0.3
         self.prob_thresh = 0.03
-        self.checkpoint = "helper/tinyfaces/model/checkpoint_50.pth"
+        self.checkpoint = "models/tinyfaces/model/checkpoint_50.pth"
         self.template_file = "helper/tinyfaces/data/templates.json"
         self.threshold_score = 0
 
