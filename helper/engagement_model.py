@@ -31,7 +31,7 @@ class EngageModel:
             h: float number
                 height of the input image
         Returns :
-        ------s
+        ---------
             dy, dx : numpy array, n x 1
                 start point of the bbox in target image
             edy, edx : numpy array, n x 1
@@ -67,12 +67,20 @@ class EngageModel:
 
     # calculate embeddings for each sample
     def get_embeddings(model, class_faces):
-        """ This function iterates through a folder of sample student images created by the Tiny Face Detector.
-        Inputs:
-        model - InsightFace Recognition model (ArcFace) defined in face_model.py
-        folder - The file path to the folder containing the sample images stored as a string
-        Outputs:
-        features - Feature embeddings for each sample image a 512 entry numpy array of floating point values
+        """
+            iterate through detected faces and calculate feature embeddings for each face
+
+        Parameters:
+        ----------
+            class_faces: numpy array, n x 5
+                input bboxes
+        Returns :
+        ---------
+            features face_widths : numpy array, n x 1
+                start point of the bbox in target image
+            face_widths : numpy array, n x 1
+                end point of the bbox in target imag
+
         """
 
         feat_len = len(class_faces)
@@ -99,7 +107,9 @@ class EngageModel:
         return features, face_widths
 
     def get_profiles(self):
-        """Retrieves the feature embeddings for students in a specific class
+        """
+            query feature embeddings for students in a specific class from the SQLite database
+            
         """
         conn = sqlite3.connect('engage.db')
         c = conn.cursor()
@@ -113,9 +123,16 @@ class EngageModel:
 
     # compare samples to profile face embeddings
     def compare_embeddings(self, sample_features, data):
-        """Write attendance data for a single lecture to the database
-        Line 2 of comment...
-        And so on...
+        """
+            compare feature embeddings 
+
+        Parameters:
+        ----------
+            sample_features : numpy array, n x 5
+                input bboxes
+            date : numpy array, n x 5
+                input bboxes
+
         """
         conn = sqlite3.connect('engage.db')
         c = conn.cursor()
@@ -135,7 +152,7 @@ class EngageModel:
                         """INSERT OR IGNORE INTO attendance VALUES (:date, :upi, :course_code, :attendance)""",
                         {'date': date, 'upi': name, 'course_code': self.code, 'attendance': 1})
                 j += 1
-            # this section may need correcting if this script is being ran multiple times in one day
+                
             if count == 0:
                 name = data[i][0]
                 c.execute("""INSERT OR IGNORE INTO attendance VALUES (:date, :upi, :course_code, :attendance)""",
