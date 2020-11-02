@@ -79,7 +79,6 @@ model_arcface = face_model.FaceModel(args_arcface)
 ## PROCESSING
 # single file to represent our results
 classes = ['NASA']
-# TODO: replace with os code to find folders in directory
 
 # loop through class folder
 output = list()
@@ -90,29 +89,25 @@ for this_class in classes:
     for class_image in class_images:
         # find detections with tinyface on downscaled photo
         img = PIL.Image.open(class_image)
-        basewidth = 750
+        basewidth = 800
+        scale_ = (basewidth / float(img.size[0]))
         if float(img.size[0]) > basewidth:
-            wpercent = (basewidth / float(img.size[0]))
-            hsize = int((float(img.size[1]) * float(wpercent)))
+            hsize = int((float(img.size[1]) * float(scale_)))
             img_downscaled = img.resize((basewidth, hsize), PIL.Image.ANTIALIAS).convert('RGB')
-            with BytesIO() as f: # make img_downscaled.format JPEG, as it turns to NoneType when resizing
-                img_downscaled.save(f, format = 'JPEG')
-                f.seek(0)
-                img_downscaled = PIL.Image.open(f)
-                img_tensor = transforms.functional.to_tensor(img_downscaled)
-                dets = get_detections(model_tinyfaces, img_tensor, templates, rf, val_transforms,
-                                      prob_thresh=args_tinyface.prob_thresh,
-                                      nms_thresh=args_tinyface.nms_thresh, device=device)
         else:
+            scale_ = 1
             img_downscaled = img.convert('RGB')
-            img_tensor = transforms.functional.to_tensor(img_downscaled)
-            dets = get_detections(model_tinyfaces, img_tensor, templates, rf, val_transforms,
-                                  prob_thresh=args_tinyface.prob_thresh,
-                                  nms_thresh=args_tinyface.nms_thresh, device=device)
+
+        img_tensor = transforms.functional.to_tensor(img_downscaled)
+        dets = get_detections(model_tinyfaces, img_tensor, templates, rf, val_transforms,
+                              prob_thresh=args_tinyface.prob_thresh,
+                              nms_thresh=args_tinyface.nms_thresh, device=device)
 
         # for each quality
-        quality = list([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
-
+        #quality = list([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
+        quality = list(np.arange(start=0.1, stop=1.025, step=0.025))
+        #quality = list([1])
+        img = PIL.Image.open(class_image)
         for qual in quality:
             class_faces = list()
             class_scores = list()
@@ -120,18 +115,23 @@ for this_class in classes:
             basewidth = int(qual * float(img.size[0]))
             hsize = int((float(img.size[1]) * float(qual)))
             this_img = img.resize((basewidth, hsize), PIL.Image.ANTIALIAS).convert('RGB')
-
             # get all detections for this image quality
             for i in range(len(dets)):  # for each detection
                 if dets[i][4] > args_tinyface.threshold_score:  # if the tinyfaces score is good
-                    this_face = np.array(this_img.crop(dets[i][0:4]))  # get cropped face
-                    class_faces.append(this_face[:, :, ::-1].copy())  # append the cropped face
+                    bbox = dets[i][0:4]
+                    new_bbox = bbox * (qual / scale_)
+                    face_width = new_bbox[2] - new_bbox[0]
+                    this_face = np.array(this_img.crop(new_bbox))  # get cropped face
+                    class_faces.append(list([this_face[:, :, ::-1].copy(), face_width]))  # append the cropped face
                     class_scores.append(dets[i][4])  # append the score
 
             # calculate arcface embeddings for each sample picture
-            detection_features = EngageModel.get_embeddings(model_arcface, class_faces)
-
-            # load student profile embeddings for the class in progress
+            detection_features, face_widths = EngageModel.get_embeddings(model_arcface, class_faces)
+            if len(face_widths) > 0:
+                average_face_width = sum(face_widths)/len(face_widths)
+            else:
+                average_face_width = None
+                # load student profile embeddings for the class in progress
             # data = EngageModel.get_profiles(args)
 
             names = list()
@@ -139,9 +139,9 @@ for this_class in classes:
             for filename in os.listdir('verification_images/class_profiles/' + this_class + '/'):
                 if filename.endswith(".jpg"):
                     file_path = os.path.join('verification_images/class_profiles/' + this_class + '/', filename)
-                    img = cv2.imread(file_path)
-                    img = model_arcface.get_input(img)
-                    f1 = model_arcface.get_feature(img)
+                    ima = cv2.imread(file_path)
+                    ima = model_arcface.get_input(ima)
+                    f1 = model_arcface.get_feature(ima)
                     name = os.path.splitext(filename)[0]
                     names.append(name)
                     features.append(f1)
@@ -149,14 +149,14 @@ for this_class in classes:
 
             # compare samples to profile face embeddings, produce roll
             attendance_sheet.append(EngageModel.class_list(model_arcface, detection_features, data,
-                                                           this_class, class_image, qual))
+                                                           this_class, class_image, average_face_width))
 
             # calculate FP, FN, sensitivity etc
             print(class_image + str(qual) + "didn't fail!")
 
     output.append(list([list(itertools.chain.from_iterable(attendance_sheet))]))
 
-with open("output3.csv", 'w', newline='') as myfile:
+with open("output_NASA_res_test_many.csv", 'w', newline='') as myfile:
     wr = csv.writer(myfile)
     for class_i in output:
         for class_photo in class_i:

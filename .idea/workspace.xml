@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e6fe0bf3-3776-46cd-b6db-286dc2edf4d8" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1jObXnXmhy5Fbzi7Y4c0qVQLHmy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager" selected="Python.verification">
+    <configuration name="functional" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="oobd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="C:/ProgramData/Anaconda3/Lib/site-packages/torch/nn" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:/ProgramData/Anaconda3/Lib/site-packages/torch/nn/functional.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="functions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="oobd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/helper/tinyfaces" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/helper/tinyfaces/functions.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="oobd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="verification" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="oobd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/verification.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="visualisations" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="oobd" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/visualisations.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.verification" />
+        <item itemvalue="Python.visualisations" />
+        <item itemvalue="Python.functions" />
+        <item itemvalue="Python.functional" />
+        <item itemvalue="Python.test3" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e6fe0bf3-3776-46cd-b6db-286dc2edf4d8" name="Default Changelist" comment="" />
+      <created>1603678126380</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603678126380</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1511" y="751" key="#xdebugger.evaluate" timestamp="1603845815770">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="1511" y="751" key="#xdebugger.evaluate/0.0.2560.1410/-1920.361.1920.1050@0.0.2560.1410" timestamp="1603845815770" />
+    <state width="1230" height="466" key="DebuggerActiveHint" timestamp="1603755006000">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="1230" height="466" key="DebuggerActiveHint/0.0.2560.1410/-1920.361.1920.1050@0.0.2560.1410" timestamp="1603755006000" />
+    <state width="2539" height="354" key="GridCell.Tab.0.bottom" timestamp="1604017686658">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="2539" height="354" key="GridCell.Tab.0.bottom/0.0.2560.1410/-1920.361.1920.1050@0.0.2560.1410" timestamp="1604017686658" />
+    <state width="2539" height="354" key="GridCell.Tab.0.center" timestamp="1604017686658">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="2539" height="354" key="GridCell.Tab.0.center/0.0.2560.1410/-1920.361.1920.1050@0.0.2560.1410" timestamp="1604017686658" />
+    <state width="2539" height="354" key="GridCell.Tab.0.left" timestamp="1604017686658">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="2539" height="354" key="GridCell.Tab.0.left/0.0.2560.1410/-1920.361.1920.1050@0.0.2560.1410" timestamp="1604017686658" />
+    <state width="2539" height="354" key="GridCell.Tab.0.right" timestamp="1604017686658">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="2539" height="354" key="GridCell.Tab.0.right/0.0.2560.1410/-1920.361.1920.1050@0.0.2560.1410" timestamp="1604017686658" />
+    <state width="2539" height="496" key="GridCell.Tab.1.bottom" timestamp="1604017683976">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="2539" height="496" key="GridCell.Tab.1.bottom/0.0.2560.1410/-1920.361.1920.1050@0.0.2560.1410" timestamp="1604017683976" />
+    <state width="2539" height="496" key="GridCell.Tab.1.center" timestamp="1604017683976">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="2539" height="496" key="GridCell.Tab.1.center/0.0.2560.1410/-1920.361.1920.1050@0.0.2560.1410" timestamp="1604017683976" />
+    <state width="2539" height="496" key="GridCell.Tab.1.left" timestamp="1604017683976">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="2539" height="496" key="GridCell.Tab.1.left/0.0.2560.1410/-1920.361.1920.1050@0.0.2560.1410" timestamp="1604017683976" />
+    <state width="2539" height="496" key="GridCell.Tab.1.right" timestamp="1604017683976">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="2539" height="496" key="GridCell.Tab.1.right/0.0.2560.1410/-1920.361.1920.1050@0.0.2560.1410" timestamp="1604017683976" />
+    <state x="781" y="347" key="SettingsEditor" timestamp="1603706682717">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="781" y="347" key="SettingsEditor/0.0.2560.1410/-1920.361.1920.1050@0.0.2560.1410" timestamp="1603706682717" />
+    <state width="1288" height="713" key="XDebugger.FullValuePopup" timestamp="1603839388145">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state width="1288" height="713" key="XDebugger.FullValuePopup/0.0.2560.1410/-1920.361.1920.1050@0.0.2560.1410" timestamp="1603839388145" />
+    <state x="976" y="529" key="com.intellij.ide.util.TipDialog" timestamp="1603839318536">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="976" y="529" key="com.intellij.ide.util.TipDialog/0.0.2560.1410/-1920.361.1920.1050@0.0.2560.1410" timestamp="1603839318536" />
+    <state x="796" y="294" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1603845447316">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="796" y="294" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1410/-1920.361.1920.1050@0.0.2560.1410" timestamp="1603845447316" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="x" />
+        <watch expression="names[0][0][0][0][0][0][0][0][0][0][0]" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

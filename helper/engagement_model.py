@@ -18,16 +18,31 @@ class EngageModel:
         self.code = args.code
         self.threshold = args.threshold
 
-    def class_list(self, detection_features, data, this_class_name, class_photo_name, quality):
+    def class_list(self, detection_features, data, this_class_name, class_photo_name, average_face_width):
         """
+            iterate through detected faces, comparing their features to those enrolled in the class
+
         Parameters:
         ----------
-            data: upis and embeddings for students in a class
-            detection_features: features of sample photos from tiny fcaes
+            bboxes: numpy array, n x 5
+                input bboxes
+            w: float number
+                width of the input image
+            h: float number
+                height of the input image
+        Returns :
+        ------s
+            dy, dx : numpy array, n x 1
+                start point of the bbox in target image
+            edy, edx : numpy array, n x 1
+                end point of the bbox in target image
+            y, x : numpy array, n x 1
+                start point of the bbox in original image
+            ex, ex : numpy array, n x 1
+                end point of the bbox in original image
+            tmph, tmpw: numpy array, n x 1
+                height and width of the bbox
 
-        Returns:
-        -------
-            a list of the attendance for each student, as well as the class they belong to
         """
         roll = list()
         for i in range(len(data[0])):  # for each person supposed to be in the class
@@ -43,10 +58,10 @@ class EngageModel:
 
             if match:
                 roll.append(list([name, 1, this_class_name,
-                                  os.path.basename(os.path.normpath(class_photo_name)), quality]))
+                                  os.path.basename(os.path.normpath(class_photo_name)), average_face_width]))
             else:
                 roll.append(list([name, 0, this_class_name,
-                                  os.path.basename(os.path.normpath(class_photo_name)), quality]))
+                                  os.path.basename(os.path.normpath(class_photo_name)), average_face_width]))
 
         return roll
 
@@ -62,19 +77,26 @@ class EngageModel:
 
         feat_len = len(class_faces)
         features = np.zeros((feat_len, 512))
+        face_widths = list()
+        isface = False
         i = 0
         for img in class_faces:
 
             try:
-                img = model.get_input(img)
-                f1 = model.get_feature(img)
+                img2 = model.get_input(img[0])
+                f1 = model.get_feature(img2)
                 features[i, :] = f1
                 i += 1
-            except Exception:
+                isface = True
+            except:
                 print('ArcFace could not detect face')
                 features = np.delete(features, i, 0)
+                isface = False
 
-        return features
+            if isface:
+                face_widths.append(img[1])
+
+        return features, face_widths
 
     def get_profiles(self):
         """Retrieves the feature embeddings for students in a specific class

@@ -154,7 +154,7 @@ def get_bboxes(score_cls, score_reg, prob_cls, templates, prob_thresh, rf, scale
                                           one_scale_template_ids[invalid_one_scale_idx]))
 
     # zero out prediction from templates that are invalid on this scale
-    prob_cls[:, :, invalid_template_id] = 0.0
+    prob_cls[:, :, :, invalid_template_id] = 0.0
 
     indices = np.where(prob_cls > prob_thresh)
     fb, fy, fx, fc = indices
@@ -192,6 +192,20 @@ def get_bboxes(score_cls, score_reg, prob_cls, templates, prob_thresh, rf, scale
 
 
 def savescores(dets, saveloc):
+    """
+          writes scores from Tiny Face detections to csv file
+
+    Parameters:
+    ----------
+        dets: list of numpy arrays, one array for each detection
+            detections (bboxes and scores as [x0, y0, x1, y1, score])
+        saveloc: string
+            location to save the csv file
+    Returns :
+    ----------
+        NA
+
+    """
     with open(saveloc, 'w', newline='') as file:
         writer = csv.writer(file)
         for i in range(len(dets)):
