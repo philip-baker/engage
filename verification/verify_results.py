@@ -30,7 +30,6 @@ class args_eval():
         self.checkpoint = "models/tinyfaces/checkpoint_50.pth"
         self.template_file = "helper/tinyfaces/data/templates.json"
         self.threshold_score = 0
-        self.csv_save_path = "verification/verify_results_csv.csv"
 
 args_tinyface = args_eval()
 threshold_score = 0
@@ -144,12 +143,5 @@ for this_class in classes:
                                                        this_class, class_image, qual))
 
         # calculate FP, FN, sensitivity etc
-        print(class_image + str(qual) + "didn't fail!")
+        print(class_image + " from the " + this_class + " class" + " didn't fail!")
 
-    output.append(list([list(itertools.chain.from_iterable(attendance_sheet))]))
-
-with open(args_tinyfaces.csv_save_path, 'w', newline='') as myfile:
-    wr = csv.writer(myfile)
-    for class_i in output:
-        for class_photo in class_i:
-            wr.writerows(class_photo)
