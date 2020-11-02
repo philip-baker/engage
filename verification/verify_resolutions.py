@@ -17,7 +17,7 @@ os.chdir("..")
 sys.path.append(os.getcwd() + '/helper')
 sys.path.append(os.getcwd() + '/helper/tinyfaces')
 
-## TINYFACES
+# Tiny Face Detector
 # threshold for tinyfaces
 from model.utils import get_model
 
@@ -27,6 +27,8 @@ csv_save_path = "verification/verify_resolutions_csv.csv"
 # change class if desired - this code was written for the NASA data
 this_class = 'NASA'
 
+# set cuda = True to run on the model on GPU
+cuda = False
 
 class args_eval():
     def __init__(self):
@@ -41,23 +43,23 @@ args_tinyface = args_eval()
 threshold_score = 0  # threshold tinyface score for feeding face into ArcFace - saves computation time. It is advised
 # to keep this no higher than 0 to avoid filtering out true positives.
 
-## getting templates
+# getting templates
 templates = json.load(open(args_tinyface.template_file))
 json.dump(templates, open(args_tinyface.template_file, "w"))
 templates = np.round_(np.array(templates), decimals=8)
 num_templates = templates.shape[0]
 
-## getting transforms
+# getting transforms
 normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 val_transforms = transforms.Compose([transforms.ToTensor(), normalize])
 
-cuda = False
+# specify whether to run on CPU or GPU
 if cuda is True:
     device = torch.device('gpu')
 else:
     device = torch.device('cpu')
 
-## get model
+# get model
 model_tinyfaces = get_model(args_tinyface.checkpoint, num_templates=num_templates)
 
 rf = {
@@ -66,7 +68,7 @@ rf = {
     'offset': [-1, -1]
 }
 
-## ARCFACE
+# ArcFace Model
 import face_model
 from engagement_model import EngageModel
 from functions import get_detections
@@ -84,7 +86,7 @@ args_arcface = parser.parse_args()
 # load ArcFace model
 model_arcface = face_model.FaceModel(args_arcface)
 
-## PROCESSING
+# Processing
 class_images = list(glob.glob('verification/verification_images/class_images/' + this_class + '/*.jpg'))
 attendance_sheet = list()
 for class_image in class_images:
@@ -105,8 +107,9 @@ for class_image in class_images:
                           nms_thresh=args_tinyface.nms_thresh, device=device)
 
     # for each quality
-    quality = list([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])  ## use this for 10 intervals (much quicker)
-    # quality = list(np.arange(start=0.1, stop=1.025, step=0.025)) ## use this for 37 intervals from 0.1 to 1 downscaling factor
+    quality = list([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])  # use this for 10 intervals (much quicker)
+    # quality = list(np.arange(start=0.1, stop=1.025, step=0.025)) # use this for 37 intervals from 0.1 to 1
+    # downscaling factor
     img = PIL.Image.open(class_image)
     for qual in quality:
         class_faces = list()
