@@ -51,11 +51,11 @@ num_templates = templates.shape[0]
 normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 val_transforms = transforms.Compose([transforms.ToTensor(), normalize])
 
-if torch.cuda.is_available():
-    # device = torch.device('cuda:0')
-    device = torch.device('cpu')
-else:
+cuda = False
+if cuda is True:
     device = torch.device('gpu')
+else:
+    device = torch.device('cpu')
 
 ## get model
 model_tinyfaces = get_model(args_tinyface.checkpoint, num_templates=num_templates)

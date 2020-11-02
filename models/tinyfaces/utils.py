@@ -104,9 +104,17 @@ class DetectionModel(nn.Module):
 
 
 def get_model(checkpoint=None, num_templates=25):
+    # model = DetectionModel(num_templates=num_templates)
+    # if checkpoint:
+    #     if gpu is True:
+    #         torch.load(checkpoint,)
+    #         model.load_state_dict(checkpoint["model"])
+    #     else:
+    #         torch.load(checkpoint, map_location=torch.device('cpu'))
+    #         model.load_state_dict(checkpoint["model"])
     model = DetectionModel(num_templates=num_templates)
     if checkpoint:
-        checkpoint = torch.load(checkpoint)
+        checkpoint = torch.load(checkpoint, map_location = torch.device('cpu'))
         model.load_state_dict(checkpoint["model"])
-    return model
 
+    return model

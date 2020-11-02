@@ -154,7 +154,6 @@ class EngageModel:
                         """INSERT OR IGNORE INTO attendance VALUES (:date, :upi, :course_code, :attendance)""",
                         {'date': date, 'upi': name, 'course_code': self.code, 'attendance': 1})
                 j += 1
-                
             if count == 0:
                 name = data[i][0]
                 c.execute("""INSERT OR IGNORE INTO attendance VALUES (:date, :upi, :course_code, :attendance)""",
