@@ -1,6 +1,6 @@
 # Computer Vision for Attendance Management
 
-By Keith Spencer-Edgar and Philip Baker October 2020
+By Keith Spencer-Edgar and Philip Baker 
 
 ## License
 
@@ -55,7 +55,7 @@ doi = {10.1109/CVPR.2017.166}
 
 ```
 [Keith Spencer-Edgar]
-[Philip Baker](philipbaker[@]hotmail.co.nz)
+[Philip Baker](philipbaker@hotmail.co.nz)
 
 
 
