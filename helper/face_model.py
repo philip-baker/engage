@@ -19,6 +19,8 @@ from mtcnn_detector import MtcnnDetector
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src', 'common'))
 import face_image
 import face_preprocess
+import os
+
 
 
 def do_flip(data):

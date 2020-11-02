@@ -1,7 +1,11 @@
 import sys
 import os
+currDir = os.getcwd()
 os.chdir('..')
 sys.path.append(os.getcwd() +'/helper')
+sys.path.append(os.getcwd() +'/models')
+sys.path.append(os.getcwd() +'/models/model-r100-ii')
+os.chdir(currDir)
 import face_model
 import argparse
 import cv2
