@@ -13,12 +13,14 @@ The training data containing the annotation (and the models trained with these d
 This module was developed as part of our BE(Hons) Enginering Science - Part IV Project undertaken as part of our undergraduate study at the University of Auckland under the supervision of Dr Nicholas Rattenbury. In this module we present a system using the Tiny Face Detector and ArcFace recognition model to mononitor classroom attendnace. 
 
 ## Face Detection
+Face detection was done with the aid of the Tiny Face Detector (https://arxiv.org/pdf/1612.04402.pdf). The code for the model, as well as the model weights are available at https://github.com/varunagrawal/tiny-faces-pytorch.
 
+The model wights can also be downloaded by clicking the following link: 
 [here](https://drive.google.com/file/d/1V8c8xkMrQaCnd3MVChvJ2Ge-DUfXPHNu/view)
 
 ## Recongition
 
-For facial recognition we used ArcFace, eveloped by the Insight Face team. More information about the mdoel can be found in [arXiv technical report](https://arxiv.org/abs/1801.07698). The authors of this model were able to achieve LFW 99.83%+ and Megaface 98%+. Further information about ArcFace is available at the origional authors' github repository [InsightFace](https://github.com/deepinsight/insightface/blob/master/README.md)
+For facial recognition we used ArcFace, developed by the Insight Face team. More information about the mdoel can be found in [arXiv technical report](https://arxiv.org/abs/1801.07698). The authors of this model were able to achieve LFW 99.83%+ and Megaface 98%+. Further information about ArcFace is available at the origional authors' github repository [InsightFace](https://github.com/deepinsight/insightface/blob/master/README.md)
 
 For models please see the Insight Face teams's 
 [Model Zoo](https://github.com/deepinsight/insightface/wiki/Model-Zoo), we reccomend using the LResNet50E-IR,ArcFace@ms1m-refine-v1 model.  This model will have to be downloaded, and then stored in the models folder. 
