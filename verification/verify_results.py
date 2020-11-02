@@ -14,7 +14,6 @@ import PIL.Image
 from torchvision import transforms
 
 os.chdir('..')
-sys.path.append(os.getcwd() + '/models/tinyfaces')
 
 import face_model
 from engagement_model import EngageModel
@@ -24,7 +23,6 @@ from functions import get_detections
 # threshold for tinyfaces
 from model.utils import get_model
 
-
 class args_eval():
     def __init__(self):
         self.nms_thresh = 0.3
@@ -32,7 +30,7 @@ class args_eval():
         self.checkpoint = "models/tinyfaces/checkpoint_50.pth"
         self.template_file = "helper/tinyfaces/data/templates.json"
         self.threshold_score = 0
-
+        self.csv_save_path = "verification/verify_results_csv.csv"
 
 args_tinyface = args_eval()
 threshold_score = 0
@@ -88,9 +86,9 @@ for this_class in classes:
     class_images = list(glob.glob('verification_images/class_images/' + this_class + '/*.jpg'))
     attendance_sheet = list()
     for class_image in class_images:
-        # find detections with tinyface on downscaled photo
         img = PIL.Image.open(class_image)
-        basewidth = 750
+        # downscaling tinyface input to keep within memory constraints
+        # basewidth = 750
         # if float(img.size[0]) > basewidth:
         #     wpercent = (basewidth / float(img.size[0]))
         #     hsize = int((float(img.size[1]) * float(wpercent)))
@@ -109,29 +107,12 @@ for this_class in classes:
         #     dets = get_detections(model_tinyfaces, img_tensor, templates, rf, val_transforms,
         #                           prob_thresh=args_tinyface.prob_thresh,
         #                           nms_thresh=args_tinyface.nms_thresh, device=device)
-
-        qual = 100
+        qual = 1
         img_tensor = transforms.functional.to_tensor(img)
         dets = get_detections(model_tinyfaces, img_tensor, templates, rf, val_transforms,
                               prob_thresh=args_tinyface.prob_thresh,
                               nms_thresh=args_tinyface.nms_thresh, device=device)
-        #  for each quality
-        # quality = list([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
-
-        # for qual in quality:
-        #     class_faces = list()
-        #     class_scores = list()
-        #     # resize image according to quality
-        #     basewidth = int(qual * float(img.size[0]))
-        #     hsize = int((float(img.size[1]) * float(qual)))
-        #     this_img = img.resize((basewidth, hsize), PIL.Image.ANTIALIAS).convert('RGB')
-        #
-        #     # get all detections for this image quality
-        #     for i in range(len(dets)):  # for each detection
-        #         if dets[i][4] > args_tinyface.threshold_score:  # if the tinyfaces score is good
-        #             this_face = np.array(this_img.crop(dets[i][0:4]))  # get cropped face
-        #             class_faces.append(this_face[:, :, ::-1].copy())  # append the cropped face
-        #             class_scores.append(dets[i][4])  # append the score
+        
         class_faces = list()
         class_scores = list()
         for i in range(len(dets)):  # for each detection
@@ -167,7 +148,7 @@ for this_class in classes:
 
     output.append(list([list(itertools.chain.from_iterable(attendance_sheet))]))
 
-with open(args_tinyfaces.save_csv_path, 'w', newline='') as myfile:
+with open(args_tinyfaces.csv_save_path, 'w', newline='') as myfile:
     wr = csv.writer(myfile)
     for class_i in output:
         for class_photo in class_i:
