@@ -13,8 +13,8 @@ import itertools
 import PIL.Image
 from torchvision import transforms
 
-sys.path.append(os.getcwd() + '/helper')
-sys.path.append(os.getcwd() + '/helper/tinyfaces')
+os.chdir('..')
+sys.path.append(os.getcwd() + '/models/tinyfaces')
 
 import face_model
 from engagement_model import EngageModel
