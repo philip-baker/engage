@@ -29,7 +29,7 @@ class args_eval():
     def __init__(self):
         self.nms_thresh = 0.3
         self.prob_thresh = 0.03
-        self.checkpoint = "helper/tinyfaces/model/checkpoint_50.pth"
+        self.checkpoint = "models/tinyfaces/checkpoint_50.pth"
         self.template_file = "helper/tinyfaces/data/templates.json"
         self.threshold_score = 0
 
@@ -167,7 +167,7 @@ for this_class in classes:
 
     output.append(list([list(itertools.chain.from_iterable(attendance_sheet))]))
 
-with open("output3.csv", 'w', newline='') as myfile:
+with open(args_tinyfaces.save_csv_path, 'w', newline='') as myfile:
     wr = csv.writer(myfile)
     for class_i in output:
         for class_photo in class_i:
