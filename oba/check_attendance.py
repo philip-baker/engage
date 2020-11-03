@@ -1,6 +1,22 @@
 # Date:   Friday 2 October 2020
 # Description - This script reads the feature embeddings from a set of samples taken from a single lecture
 #               It will to run on CPUe use general python test_multiple.py --gpu -1
+
+"""Documentation for build_system.py
+   This script is part of the OBA (Out-of-the-Box-Attendance) it has been designed to be used on a daily basis for a given course.  As an input it will 
+   look for an image (named sample.jpg), which if it cannot find it will prompt the user to take an image using any camera attached to the computer.  Then 
+   the Tiny Face Detector 
+   
+   it looks for an image (named sample.jpg) as an input in the folder sample_images
+   if it cannot find a picture, it will attempt to take a picture with whatever camera is connected to the computer. Then the Tiny Face Detector is 
+   used to detect faces in the image, before using ArcFace to classifiy 
+   
+   
+   The script reads the information 
+   about each student from the file students.csv and gets the student profile pictures by reading all .jpg files in the student_profiles directoy. 
+   Then a database file engage.db is created. 
+"""
+
 import sys
 import os
 currDir = os.getcwd()
