@@ -1,8 +1,16 @@
+"""Module documentation for visualisations.py
+   This script processes the output from verify_resolutions.py in order to find the number of true positive, false positives etc.
+   The script produces two graphs: one for accuracy and one for recall, plotted against face width. 
+"""
+
 import csv
 import pandas as pd
 import json
 import matplotlib.pyplot as plt
 import numpy as np
+
+__author__ = "Philip Baker & Keith Spencer-Edgar"
+__date__ = "25-10-2020"
 
 with open("roll_call.json", "r") as read_file:
     json_data = json.load(read_file)
