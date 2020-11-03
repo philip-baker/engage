@@ -1,6 +1,9 @@
-# contains various functions needed for our combined system
-# Authors: Keith Spencer-Edgar & Philip Baker, The University of Auckland 2020
+"""contains various functions needed for our combined system
+"""
 import sklearn
+
+__author__  = "Philip Baker & Keith Spencer-Edgar"
+__date__ = "25-10-2020"
 
 def process_image(img, class_folder, model):
     """
