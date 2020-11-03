@@ -1,4 +1,4 @@
-"""Module documentation for visualisations.py
+"""Documentation for visualisations.py
    This script processes the output from verify_resolutions.py in order to find the number of true positive, false positives etc.
    The script produces two graphs: one for accuracy and one for recall, plotted against face width. 
 """
