@@ -29,24 +29,22 @@ class EngageModel:
 
         Parameters:
         ----------
-            bboxes: numpy array, n x 5
-                input bboxes
-            w: float number
-                width of the input image
-            h: float number
-                height of the input image
+            detection_features: ndarray(n,512)
+               features from tiny face detection
+            data: list 
+               list of lists, first list upi, second list features for corresponding upi
+            this_class_name: string
+               name of class
+            class_photo_name: string
+               name of photo
+            qual: float
+               quality factor of photo
+            average_face_width: float
+               the average width of detection for photo
         Returns :
         ---------
-            dy, dx : numpy array, n x 1
-                start point of the bbox in target image
-            edy, edx : numpy array, n x 1
-                end point of the bbox in target image
-            y, x : numpy array, n x 1
-                start point of the bbox in original image
-            ex, ex : numpy array, n x 1
-                end point of the bbox in original image
-            tmph, tmpw: numpy array, n x 1
-                height and width of the bbox
+            roll: list
+               all data for each studnet in class
 
         """
         roll = list()
@@ -135,7 +133,7 @@ class EngageModel:
         ----------
             sample_features : numpy array, (n, 512)
                 input bboxes
-            data : numpy array, n x 5
+            data : list of los
                 input bboxes
 
         """
