@@ -1,3 +1,11 @@
+
+"""Documentation for build_system.py
+   This script is part of the OBA (Out-of-the-Box-Attendance) and creates a SQlite database to store student attendance records, 
+   information about each student, and feature embeddings (calculated using ArcFace) for each student. The script reads the information 
+   about each student from the file students.csv and gets the student profile pictures by reading all .jpg files in the student_profiles directoy. 
+   Then a database file engage.db is created. 
+"""
+
 import sys
 import os
 currDir = os.getcwd()
@@ -16,6 +24,10 @@ import json
 import csv
 import sqlite3
 import csv
+
+__author__ = "Philip Baker & Keith Spencer-Edgar"
+__date__ = "25-10-2020"
+
 from create_database import Student, create_db, add_course
 
 # set arguments
