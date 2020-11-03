@@ -8,7 +8,7 @@
    used to detect faces in the image, before using ArcFace to compare these images against the profile images for students in the class.  The results 
    (Present / Absent for each student) are then written to the engage.db 
    
-   It will to run on CPUe use general python test_multiple.py --gpu -1
+   To run on CPU specifiy the gpu argument as follows check_attendance.py --gpu -1
 """
 
 import sys
