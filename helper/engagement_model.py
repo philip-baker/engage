@@ -77,14 +77,14 @@ class EngageModel:
 
         Parameters:
         ----------
-            class_faces: numpy array, n x 5
-                input bboxes
+            class_faces: list of lists, each list has a image (ndarray:(x,y,3)) and a score (float)
+                list of cropped detections with scores 
         Returns :
         ---------
-            features face_widths : numpy array, n x 1
+            features: numpy array, (n, 512)
                 start point of the bbox in target image
-            face_widths : numpy array, n x 1
-                end point of the bbox in target imag
+            face_widths : list
+                list of face widths
 
         """
 
@@ -133,9 +133,9 @@ class EngageModel:
 
         Parameters:
         ----------
-            sample_features : numpy array, n x 5
+            sample_features : numpy array, (n, 512)
                 input bboxes
-            date : numpy array, n x 5
+            data : numpy array, n x 5
                 input bboxes
 
         """
