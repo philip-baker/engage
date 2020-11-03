@@ -1,7 +1,18 @@
+"""Module documentation for create_database.py
+   This file contains several functions used to create an SQLite database to interface with the system. It includes severall functions to
+   modify the database. In addition, it contains the Student Class. 
+"""
+
 import sqlite3
 
+__author__ = "Philip Baker & Keith Spencer-Edgar"
+__date__ = "25-10-2020"
 
 def create_db():
+    """
+        Create an SQLite database (.db) file with three tables: attendance, students, and features. 
+       
+    """
     conn = sqlite3.connect('engage.db')
     c = conn.cursor()
 
@@ -49,8 +60,17 @@ def add_course(name):
 
 class Student:
     """
+        A single student in the SQLite database 
 
-
+    Attributes:
+    ----------
+        upi (str): The student's UPI (Unique Personal Identifier) 
+        first: string
+            The student's first name
+        last: string 
+            The student's last name 
+        age: float
+            The student's age 
     """
 
     def __init__(self, upi, first, last, age):
@@ -60,6 +80,9 @@ class Student:
         self.age = age
 
     def add_student(self):
+        """
+            Adds a student to the SQLite database 
+        """
         conn = sqlite3.connect('engage.db')
         c = conn.cursor()
         c.execute("""INSERT OR IGNORE INTO students VALUES (:upi, :first, :last, :age)""",
@@ -69,6 +92,14 @@ class Student:
         conn.close()
 
     def add_to_class(self, class_name):
+        """
+            Adds a student to a class (roll) in the SQlite database
+        Parameters:
+        ----------
+            class_name: string 
+                The name of the class to add the student to
+
+        """
         conn = sqlite3.connect('engage.db')
         c = conn.cursor()
         c.execute("""INSERT OR IGNORE INTO %s VALUES (:upi)""" % class_name,
