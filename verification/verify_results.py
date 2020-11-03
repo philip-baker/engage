@@ -1,12 +1,10 @@
+"""Documentation for verify_results.py
+   This script processes class data in order to calculate accuracy, sensitivity etc. on the overall class. This should match results given in our report.
+   The script prints these values out to screen.
+"""
+
 import os
 import sys
-
-currDir = os.getcwd()
-os.chdir('..')
-sys.path.append(os.getcwd() + '/helper')
-sys.path.append(os.getcwd() + '/helper/tinyfaces')
-sys.path.append(os.getcwd() + '/models/model-r100-ii')
-os.chdir(currDir)
 import argparse
 import glob
 import json
@@ -19,10 +17,21 @@ import itertools
 import PIL.Image
 from torchvision import transforms
 import json
+
 import face_model
 from engagement_model import EngageModel
 from functions import get_detections
 from model.utils import get_model
+
+currDir = os.getcwd()
+os.chdir('..')
+sys.path.append(os.getcwd() + '/helper')
+sys.path.append(os.getcwd() + '/helper/tinyfaces')
+sys.path.append(os.getcwd() + '/models/model-r100-ii')
+os.chdir(currDir)
+
+__author__ = "Philip Baker & Keith Spencer-Edgar"
+__date__  = "25-10-2020"
 
 parser = argparse.ArgumentParser(description='face model test')
 parser.add_argument('--image-size', default='112,112', help='')
