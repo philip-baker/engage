@@ -127,14 +127,14 @@ class EngageModel:
     # compare samples to profile face embeddings
     def compare_embeddings(self, sample_features, data):
         """
-            compare feature embeddings 
+            compares feature embeddings
 
         Parameters:
         ----------
             sample_features : numpy array, (n, 512)
-                input bboxes
-            data : list of los
-                input bboxes
+                features from detections
+            data : list
+                upis and corresponding features
 
         """
         conn = sqlite3.connect('engage.db')
