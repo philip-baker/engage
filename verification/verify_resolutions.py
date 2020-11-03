@@ -1,6 +1,9 @@
 """Module documentation for visualisations.py
-   This script processes the output from verify_resolutions.py in order to find the number of true positive, false positives etc.
-   The script produces two graphs: one for accuracy and one for recall, plotted against face width. 
+   This script processes the data from the NASA class, iterating over several face resolutions in order to get an attendance record for each individual 
+   in each photo of the class at different resolutions. The results are saved to a csv file.
+   
+   NOTE: the graph in the report is using 37 values of resolution, in this code we have changed it to only 10 to lessen computational time - it will still take up to an hour.
+   Uncomment line 123 and comment line 122 to change this back to 37 values.
 """
 
 import argparse
@@ -116,7 +119,7 @@ for class_image in class_images:
                           nms_thresh=args_tinyface.nms_thresh, device=device)
 
     # for each quality
-    quality = list([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])  # use this for 10 intervals (much quicker)
+    quality = list([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])  # use this for 10 values (much quicker)
     # quality = list(np.arange(start=0.1, stop=1.025, step=0.025)) # use this for 37 intervals from 0.1 to 1
     # downscaling factor
     img = PIL.Image.open(class_image)
