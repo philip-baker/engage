@@ -29,7 +29,6 @@ os.chdir("..")
 sys.path.append(os.getcwd() + '/helper')
 sys.path.append(os.getcwd() + '/helper/tinyfaces')
 
-
 __author__ = "Philip Baker & Keith Spencer-Edgar"
 __date__ = "25-10-2020"
 
