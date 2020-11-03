@@ -14,12 +14,10 @@ sys.path.append(os.getcwd() +'/helper')
 sys.path.append(os.getcwd() +'/models')
 sys.path.append(os.getcwd() +'/models/model-r100-ii')
 os.chdir(currDir)
-import face_model
+
 import argparse
 import cv2
-import sys
 import numpy as np
-import os
 import json
 import csv
 import sqlite3
@@ -28,6 +26,7 @@ import csv
 __author__ = "Philip Baker & Keith Spencer-Edgar"
 __date__ = "25-10-2020"
 
+import face_model
 from create_database import Student, create_db, add_course
 
 # set arguments
