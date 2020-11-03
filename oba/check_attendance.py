@@ -39,6 +39,10 @@ from engagement_model import EngageModel
 from functions import get_detections
 from model.utils import get_model
 
+
+__author__ = "Philip Baker & Keith Spencer-Edgar"
+__date__ = "25-10-2020"
+
 # user arguments
 parser = argparse.ArgumentParser(description='face model test')
 parser.add_argument('--image-size', default='112,112', help='')
