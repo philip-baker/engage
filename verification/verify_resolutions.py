@@ -1,4 +1,8 @@
-# user arguments
+"""Module documentation for visualisations.py
+   This script processes the output from verify_resolutions.py in order to find the number of true positive, false positives etc.
+   The script produces two graphs: one for accuracy and one for recall, plotted against face width. 
+"""
+
 import argparse
 import glob
 import json
@@ -13,13 +17,21 @@ import itertools
 import PIL.Image
 from torchvision import transforms
 
+from model.utils import get_model # tinyface
+import face_model # arcface
+from engagement_model import EngageModel
+from functions import get_detections
+
 os.chdir("..")
 sys.path.append(os.getcwd() + '/helper')
 sys.path.append(os.getcwd() + '/helper/tinyfaces')
 
+
+__author__ = "Philip Baker & Keith Spencer-Edgar"
+__date__ = "25-10-2020"
+
 # Tiny Face Detector
 # threshold for tinyfaces
-from model.utils import get_model
 
 # where to save results - change as desired
 csv_save_path = "verification/verify_resolutions_csv.csv"
@@ -30,6 +42,7 @@ this_class = 'NASA'
 # set cuda = True to run on the model on GPU
 cuda = False
 
+# tinyface user arguments
 class args_eval():
     def __init__(self):
         self.nms_thresh = 0.3
@@ -69,10 +82,6 @@ rf = {
 }
 
 # ArcFace Model
-import face_model
-from engagement_model import EngageModel
-from functions import get_detections
-
 parser = argparse.ArgumentParser(description='face model test')
 parser.add_argument('--image-size', default='112,112', help='')
 parser.add_argument('--model', default='./models/model-r100-ii/model,0', help='path to load model.')
