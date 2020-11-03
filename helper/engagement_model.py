@@ -1,3 +1,7 @@
+"""Module documentation for engagement_model.py
+   This script contains the class EngageModel. Within this class there are several functions such as class_lst().
+"""
+
 import argparse
 import cv2
 import sys
@@ -5,14 +9,13 @@ import numpy as np
 import os
 import json
 import csv
-from datetime import datetime
 from csv import writer
-import csv
+from datetime import datetime
 import sqlite3
 import ast
-import os
 
-
+__author__ = "Philip Baker & Keith Spencer-Edgar"
+__date__ = "25-10-2020"
 
 class EngageModel:
     def __init__(self, args):
