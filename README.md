@@ -12,14 +12,21 @@ As part of the project we have developed a system capable of measuring attendanc
 ```
 git clone --recursive https://github.com/philip-baker/engage/edit/main/README.md
 ```
+
 2. Download the pre-trained weights for the Tiny Face Detector from [here](https://drive.google.com/file/d/1V8c8xkMrQaCnd3MVChvJ2Ge-DUfXPHNu/view), and store checkpoint_50.pth under *`$engage/models/tinyfaces`*.
+
+
 3. Download the LResNet50E-IR, ArcFace@ms1m-refine-v1 model from [here](https://github.com/deepinsight/insightface/wiki/Model-Zoo) and store the model in the *`$engage/models`* directory directory. 
 
 ### Usage
 1. For every student in the class enter their UPI (Unique Personal Identifier / Student ID), last name, first name, into the file students.csv this file should not have a header row.
+
 2. Save a profile picture for each student in the class in the directory student_profiles. The profile pictures should be .jpg files and the file name should be the sudents UPI. 
+
 3. Run build_system.py this will create an SQLite (.db) database storing the information entered in the file students.csv this database will then be used to store attendance records.
+
 4. If you would like to take a picture of the class using an attached camera simply run check_attendance.py at the beginning of the class. A pop up window will appear, when you are satisfied with the picture, press q to take the image. If you would like to manually provide an image, simply put an image named sample.jpg under sample_images and run check_attendance.py
+
 5. To view the results you will need to use third-party software to view the contents of the .db SQLite database.  To do this the authors have been using [DB Browser for SQLite](https://sqlitebrowser.org/)
 
 ## Theory
@@ -59,10 +66,7 @@ doi = {10.1109/CVPR.2017.166}
 
 ## Contact
 
-
-[Keith Spencer-Edgar]
-
 [Philip Baker](philipbaker@hotmail.co.nz)
 
-
+Keith Spencer-Edgar
 
