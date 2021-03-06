@@ -66,7 +66,7 @@ doi = {10.1109/CVPR.2017.166}
 
 ## Contact
 
-[Philip Baker](philipbaker@hotmail.co.nz)
+[Philip Baker](mailto:philipbaker@hotmail.co.nz?subject=[GitHub]%20Engage%20Project)
 
 Keith Spencer-Edgar
 
