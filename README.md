@@ -59,9 +59,9 @@ doi = {10.1109/CVPR.2017.166}
 
 ## Contact
 
-```
+
 [Keith Spencer-Edgar]
 [Philip Baker](philipbaker@hotmail.co.nz)
-```
+
 
 
