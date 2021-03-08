@@ -1,6 +1,6 @@
 # Computer Vision for Attendance Management
 
-This module was developed by Keith Spencer-Edgar and Philip Baker as part of our the BE(Hons) Enginering Science programme at the University of Auckland, under the supervision of Dr Nicholas Rattenbury. In this module we present a system using the Tiny Face Detector and ArcFace recognition model to mononitor classroom attendnace. 
+This module was developed by Keith Spencer-Edgar and Philip Baker at the University of Auckland, under the supervision of Dr Nicholas Rattenbury. In this module we present a system using the Tiny Face Detector and ArcFace recognition model to mononitor classroom attendnace. 
 
 ## Deployment
 ### Prerequisites
